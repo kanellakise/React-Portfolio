@@ -55,6 +55,7 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
 
+// Unused virtual to reflect how many projects a user has
 // userSchema.virtual('projectCount').get(function() {
 //   return this.projects.length;
 // });

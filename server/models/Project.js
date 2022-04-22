@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-// Schema for projects. Can define project
+// Schema for projects. Can define project importance
 const projectSchema = new Schema(
   {
     descText: {

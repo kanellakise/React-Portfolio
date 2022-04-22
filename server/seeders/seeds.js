@@ -36,21 +36,21 @@ db.once('open', async () => {
   }
 
   // create thoughts
-  let createdThoughts = [];
+  let createdProjectss = [];
   for (let i = 0; i < 100; i += 1) {
     const descText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    const createdThought = await Project.create({ descText, username });
+    const createdProject = await Project.create({ descText, username });
 
     const updatedUser = await User.updateOne(
       { _id: userId },
-      { $push: { thoughts: createdThought._id } }
+      { $push: { thoughts: createdProject._id } }
     );
 
-    createdThoughts.push(createdThought);
+    createdThoughts.push(createdProject);
   }
 
   // create reactions
